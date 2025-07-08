@@ -1,11 +1,11 @@
 
 public class Exercise401 {
 	public static void main(String[] args) {
-        int[] numbers = {
-          5, 1, 2, 8, 6, 4, 3, 7, 20, 21, 22, 25, 50, 51, 52, 53, 10, 11, 12, 13, 100, 99, 98, 97, 96, 80, 81, 82, 83, 84
-        };
+        int[] numbers = { 5, 1, 2, 8, 6, 4, 3, 7, 20, 21, 22, 25, 50, 51, 52, 53, 10, 11, 12, 13, 100, 99, 98, 97, 96, 80, 81, 82, 83, 84 };
         // TODO
         int max = 0;
+        
+        //配列の並べ替え=====
         for(int i = 0; i < numbers.length - 1; i++) {
         	for(int j = 0; j < numbers.length - (i + 1); j++) {
         		if(numbers[j] > numbers[j + 1]) {
@@ -15,7 +15,9 @@ public class Exercise401 {
         		}
         	}
         }
+        //=====End
         
+        //連続した数字の検出=====
         for(int i = 0; i < numbers.length - 1; i++) {
         	int count = 1;
         	for(int j = 0; j < numbers.length - (i + 1); j++) {
@@ -30,7 +32,8 @@ public class Exercise401 {
         		}
         	}
         }
+        //=====End
         
-        System.out.println("最も長いものの長さ : " + max);
+        System.out.println("最も長いものの長さ : " + max); //結果の出力
     }
 }

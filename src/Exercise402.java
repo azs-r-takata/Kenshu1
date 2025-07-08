@@ -14,10 +14,9 @@ public class Exercise402 {
 	     double[] ratio = new double[12];
 	     int total = 0;
 	     int avg = 0;
-	     
-	     
 	     String[] rank = new String[10];
 	     
+	     //各店舗の年間売上の計算=====
 	     int count = 0;
 	     for(int i = 0; i < 120; i += 12) {
 	    	 for(int j = i; j < i + 12;j++) {
@@ -26,20 +25,22 @@ public class Exercise402 {
 	    	 total += storeSum[count];
 	    	 count++;
 	     }
+	     //=====End
 	     
-	     avg = total / 10;
+	     avg = total / 10; //平均売上の計算
 	     count = 1;
 	     
+	     //各店舗の年間売上の出力=====
 	     System.out.println("【年間売上】");
 	     
 	     for(int i = 0; i < 10; i++) {
-	    	 if(storeSum[i] >= avg) {
+	    	 if(storeSum[i] >= avg) { //平均売上以上であればAランク
 	    		 rank[i] = "A";
 	    	 }
-	    	 else if(storeSum[i] >= avg / 2) {
+	    	 else if(storeSum[i] >= avg / 2) { //平均売上の半分以上であればBランク
 	    		 rank[i] = "B";
 	    	 }
-	    	 else if(storeSum[i] < avg / 2) {
+	    	 else if(storeSum[i] < avg / 2) { //平均売上の半分より低ければCランク
 	    		 rank[i] = "C";
 	    	 }
 	    	 
@@ -47,7 +48,9 @@ public class Exercise402 {
 	    	 count++;
 	     }
 	     System.out.println();
+	     //=====End
 	     
+	     //月別総売上と割合の計算・出力=====
 	     System.out.println("【月別総売上と割合】");
 	     count = 1;
 	     for(int i = 0; i < 12; i++) {
@@ -59,17 +62,20 @@ public class Exercise402 {
 	    	 count++;
 	     }
 	     System.out.println();
+	     //=====
 	     
+	     //月別総売上の最も売上が高かった月を計算・出力=====
 	     int max = monthSum[0];
 	     for(int i = 1; i < 12; i++) {
 	    		 if(max < monthSum[i]) {
 	    			 max = i;
 	    	 }
 	     }
-	     
 	     System.out.println("最も売り上げの高かった月: " + (max + 1) + "月（" + monthSum[max] + "円）");
 	     System.out.println();
+	     //=====End
 	     
+	     //売上ランキングの並べ替えと出力=====
 	     System.out.println("【売上ランキング】 (降順)");
 	     
 	     for(int i = 0; i < 10; i++) {
@@ -89,8 +95,9 @@ public class Exercise402 {
 	    	 System.out.println(i + 1 + "位: 店舗" + ranking[i] + " " + storeSum[i] + "円");
 	     }
 	     System.out.println();
+	     //=====End
 	     
-	     
+	     //最高売上・最低売上の検出=====
 	     int storeMax = storeSum[0];
 	     int storeMin = storeSum[0];
 	     for(int i = 1; i < 10; i++) {
@@ -102,9 +109,12 @@ public class Exercise402 {
 	    		 storeMin = storeSum[i];
 	    	 }
 	     }
+	     //=====End
 	     
+	     //各結果の出力=====
 	     System.out.println("平均売上: " + avg + "円");
 	     System.out.println("最高売上: " + storeMax + "円");
 	     System.out.println("最低売上: " + storeMin + "円");
+	     //=====End
 	}
 }
